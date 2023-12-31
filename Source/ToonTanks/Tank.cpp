@@ -5,7 +5,6 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/InputComponent.h"
-#include "EnhancedInputComponent.h"
 
 
 ATank::ATank()
@@ -24,13 +23,10 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	UEnhancedInputComponent* Input = Cast<UEnhancedInputComponent>(PlayerInputComponent);
-
-	Input->;
-	
+	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ATank::Move);
 }
 
 void ATank::Move(float value) 
 {
-	UE_LOG(LogTemp,Warning,TEXT("Value : %F"), value)
+	UE_LOG(LogTemp, Warning, TEXT("Value : %f"), value);
 }

@@ -17,7 +17,7 @@ class TOONTANKS_API ATank : public ABasePawn
 public:
 	ATank();
 
-	void Move(float value);
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	
 private:
@@ -27,9 +27,7 @@ private:
 	UPROPERTY(Category = "Camera Components", VisibleAnywhere)
 	class UCameraComponent* CameraComp;
 
-public:
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent);
-
+	void Move(float value);
 
 };
 
